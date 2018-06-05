@@ -1,0 +1,18 @@
+.margin-top-flush {
+    margin-top: 0 !important;
+}
+
+.notification {
+    &.is-outlined {
+        border: 1px solid #c5c7ce;
+    }
+    &.is-transparent {
+        background: transparent;
+    }
+}
+
+.has-vertically-aligned-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

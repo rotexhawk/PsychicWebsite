@@ -1,0 +1,9 @@
+query {
+    psychics(limit: 5) {
+        id
+        email
+        username
+        nicename
+        thumbnail
+    }
+}

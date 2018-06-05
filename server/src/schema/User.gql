@@ -1,0 +1,42 @@
+type User {
+    id: Int
+    username: String!
+    email: String!
+    nicename: String!
+    meta: [UserMeta]
+}
+
+type UserMeta {
+    meta_id: Int!
+    user_id: Int!
+    meta_key: String
+    meta_value: String
+}
+
+type Query {
+    user(id: Int): User
+    users: [User]
+}
+
+type Mutation {
+    userCreate(
+        username: String!
+        password: String!
+        email: String!
+        firstname: String!
+        lastname: String!
+    ): User
+    userDelete(id: Int): Boolean
+    userUpdate(
+        id: Int!
+        password: String
+        email: String
+        firstname: String
+        lastname: String
+    ): User
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

@@ -1,0 +1,17 @@
+{
+    "presets": ["react-app"],
+    "plugins": [
+        "import-graphql",
+        [
+            "module-resolver",
+            {
+                "root": ["./src"],
+                "alias": {
+                    "components": "./src/components",
+                    "containers": "./src/containers",
+                    "bulma": "rb-components/lib"
+                }
+            }
+        ]
+    ]
+}

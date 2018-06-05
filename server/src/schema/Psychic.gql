@@ -1,0 +1,12 @@
+type Psychic {
+    id: Int
+    username: String!
+    email: String!
+    nicename: String!
+    thumbnail: String
+}
+
+extend type Query {
+    psychic(id: Int): Psychic
+    psychics(limit: Int): [Psychic]
+}
