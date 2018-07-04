@@ -4,6 +4,9 @@ type Psychic {
     email: String!
     nicename: String!
     thumbnail: String
+    specialties: [String!]
+    tools: [String!]
+    reading_style: String
 }
 
 extend type Query {

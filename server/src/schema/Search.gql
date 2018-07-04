@@ -1,0 +1,16 @@
+type Search {
+    results: [Psychic]
+}
+
+input Filter {
+    name: String
+    extension: String
+    sort: String
+    specialties: [String]
+    tools: [String]
+    reading_style: [String]
+}
+
+extend type Query {
+    search(filter: Filter, limit: Int, offset: Int): Search
+}

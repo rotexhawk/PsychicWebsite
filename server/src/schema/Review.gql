@@ -1,0 +1,10 @@
+type Review {
+    author: String!
+    text: String!
+    avatar: String!
+}
+
+extend type Query {
+    review(id: Int): Review
+    reviews(limit: Int): [Review]
+}

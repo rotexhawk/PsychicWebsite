@@ -17,6 +17,7 @@
         "babel-cli": "^6.26.0",
         "babel-plugin-import-graphql": "^2.4.4",
         "babel-preset-env": "^1.7.0",
+        "casual": "^1.5.19",
         "faker": "^4.1.0",
         "nodemon": "^1.17.4"
     },
