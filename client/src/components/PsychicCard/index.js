@@ -40,7 +40,7 @@ const PsychicCard = ({
                         </Heading>
                     </Media.Item>
                 </Media>
-                <Content>{body ? <p>body</p> : children}</Content>
+                <Content>{body ? <p>{body}</p> : children}</Content>
             </CardContent>
         </Card>
     );
