@@ -57,8 +57,12 @@
         "test": "node scripts/test.js --env=jsdom"
     },
     "jest": {
-        "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
-        "setupFiles": ["<rootDir>/config/polyfills.js"],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,mjs}"
+        ],
+        "setupFiles": [
+            "<rootDir>/config/polyfills.js"
+        ],
         "testMatch": [
             "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
             "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -68,8 +72,7 @@
         "transform": {
             "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
             "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-            "^(?!.*\\.(js|jsx|mjs|css|json)$)":
-                "<rootDir>/config/jest/fileTransform.js"
+            "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
         "transformIgnorePatterns": [
             "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
@@ -98,6 +101,7 @@
         "graphql-tag": "^2.9.2",
         "node-sass": "^4.9.0",
         "react-apollo": "^2.1.4",
-        "sass-loader": "^7.0.1"
+        "sass-loader": "^7.0.1",
+        "svg-inline-loader": "^0.8.0"
     }
 }
