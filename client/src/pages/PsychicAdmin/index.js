@@ -4,6 +4,8 @@ import Section from 'bulma/components/section';
 import Container from 'bulma/components/container';
 import PageFooter from 'components/Footer';
 import Columns from 'bulma/components/columns';
+import PsychicSignup from './PsychicSignup';
+
 import styled from 'styled-components';
 
 const PsychicAdmin = () => {
@@ -17,7 +19,7 @@ const PsychicAdmin = () => {
                             <h1>This is working</h1>
                         </Columns.Column>
                         <Columns.Column size={9}>
-                            <h2>This is working</h2>
+                            <PsychicSignup />
                         </Columns.Column>
                     </Columns>
                 </Container>

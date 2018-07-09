@@ -8,7 +8,7 @@ import PageFooter from 'components/Footer';
 import Columns from 'bulma/components/columns';
 import styled from 'styled-components';
 import Box from 'bulma/components/box';
-import Button from 'bulma/components/button';
+
 import {
     Field,
     Label,

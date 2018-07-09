@@ -1,4 +1,4 @@
-export const defaults = {
+export const searchFrom = {
     form: {
         __typename: 'form',
         name: 'test',

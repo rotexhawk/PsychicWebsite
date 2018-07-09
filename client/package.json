@@ -93,6 +93,15 @@
     "eslintConfig": {
         "extends": "react-app"
     },
+    "prettier": {
+        "useTabs": false,
+        "printWidth": 120,
+        "tabWidth": 4,
+        "singleQuote": true,
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "parser": "babylon"
+    },
     "devDependencies": {
         "apollo-boost": "^0.1.7",
         "babel-plugin-import-graphql": "^2.4.4",
@@ -100,6 +109,7 @@
         "graphql": "^0.13.2",
         "graphql-tag": "^2.9.2",
         "node-sass": "^4.9.0",
+        "prettier": "^1.13.7",
         "react-apollo": "^2.1.4",
         "sass-loader": "^7.0.1",
         "svg-inline-loader": "^0.8.0"

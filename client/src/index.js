@@ -13,7 +13,7 @@ import { ApolloLink } from 'apollo-link';
 import { withClientState } from 'apollo-link-state';
 import { HttpLink } from 'apollo-link-http';
 
-import { defaults } from './pages/Search/formState';
+import { defaults } from './resolvers/defaultState';
 import { resolvers } from './resolvers/';
 
 const cache = new InMemoryCache();
@@ -21,7 +21,7 @@ const cache = new InMemoryCache();
 const stateLink = withClientState({
     cache,
     defaults,
-    resolvers,
+    resolvers
 });
 
 const client = new ApolloClient({
@@ -30,11 +30,11 @@ const client = new ApolloClient({
         new HttpLink({
             uri: `http://stag.cyberserge.com:3333/graphql`,
             opts: {
-                mode: 'no-cors',
-            },
-        }),
+                mode: 'no-cors'
+            }
+        })
     ]),
-    cache,
+    cache
 });
 
 const Root = () => (
