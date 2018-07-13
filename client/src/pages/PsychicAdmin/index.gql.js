@@ -1,27 +1,8 @@
 import gql from 'graphql-tag';
 
-export const psychicSignupForm = gql`
-    query psychicSignupForm {
-        psychicSignupForm @client {
-            id
-            firstname
-            lastname
-            username
-            email
-            phone
-            address
-            city
-            state
-            zip
-            country
-            dob
-        }
-    }
-`;
-
-export const createPsychic = gql`
-    mutation createPsychic(
-        $firstName: String!
+export const psychicCreate = gql`
+    mutation psychicCreate(
+        $firstname: String!
         $lastname: String!
         $username: String!
         $password: String
@@ -30,12 +11,12 @@ export const createPsychic = gql`
         $address: String!
         $city: String!
         $state: String!
-        $zip: String!
+        $zip: Int!
         $country: String!
         $dob: String!
     ) {
-        createPsychic(
-            firstName: $firstName
+        psychicCreate(
+            firstname: $firstname
             lastname: $lastname
             username: $username
             password: $password
@@ -49,9 +30,10 @@ export const createPsychic = gql`
             dob: $dob
         ) {
             id
-            firstName
-            lastName
+            firstname
+            lastname
             username
+            password
             email
             phone
             address

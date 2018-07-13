@@ -1,11 +1,11 @@
-import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
-import mocks from './mocks';
+import { makeExecutableSchema, addMockFunctionsToSchema } from "graphql-tools";
+import mocks from "./mocks";
 
-import UserType from './User.gql';
-import UserResolver from './User.js';
-import PsychicType from './Psychic.gql';
-import ReviewType from './Review.gql';
-import SearchType from './Search.gql';
+import UserType from "./User.gql";
+import UserResolver from "./User.js";
+import PsychicType from "./Psychic.gql";
+import ReviewType from "./Review.gql";
+import SearchType from "./Search.gql";
 
 const typeDefs = [UserType, PsychicType, ReviewType, SearchType];
 const resolvers = [UserResolver];

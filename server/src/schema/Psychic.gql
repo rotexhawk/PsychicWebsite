@@ -13,3 +13,20 @@ extend type Query {
     psychic(id: Int): Psychic
     psychics(limit: Int): [Psychic]
 }
+
+extend type Mutation {
+    psychicCreate (
+        firstname: String!
+        lastname: String!
+        username: String!
+        password: String!
+        email: String!
+        phone: String!
+        address: String!
+        city: String!
+        state: String!
+        zip: Int!
+        country: String!
+        dob: String!
+    ):Psychic
+}

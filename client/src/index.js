@@ -23,12 +23,12 @@ const stateLink = withClientState({
     defaults,
     resolvers
 });
-
+// uri: `http://stag.cyberserge.com:3333/graphql`,
 const client = new ApolloClient({
     link: ApolloLink.from([
         stateLink,
         new HttpLink({
-            uri: `http://stag.cyberserge.com:3333/graphql`,
+            uri: `http://localhost:3333/graphql`,
             opts: {
                 mode: 'no-cors'
             }
