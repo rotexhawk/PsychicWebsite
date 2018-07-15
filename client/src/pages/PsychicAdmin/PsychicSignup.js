@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { psychicCreate } from './index.gql.js';
 import { Checkbox, Control, Field, Input, Label, Radio, Help, Select } from 'bulma/components/form';
+import Notification from 'bulma/components/notification';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { countries } from '../../../src/utils';
+import { countries, states, phoneMask } from '../../../src/utils';
+import MaskedInput from 'react-text-mask';
 
 const CustomInput = ({ label, name, type, placeholder, errors, values, touched, handleBlur }) => (
     <Field>
@@ -24,9 +26,15 @@ const CustomInput = ({ label, name, type, placeholder, errors, values, touched, 
 );
 
 class PsychicSignup extends Component {
-    handleFormSubmit = (values, { setSubmitting, setErrors }) => {
-        console.log('values', values);
+    handleFormSubmit = async (values, { setSubmitting, setErrors, setStatus }) => {
         setSubmitting(false);
+        console.log('values', values);
+        const { psychicCreate } = this.props;
+        try {
+            await psychicCreate(values);
+        } catch (e) {
+            setStatus(e.message);
+        }
     };
 
     getValidationSchema = () => {
@@ -65,9 +73,25 @@ class PsychicSignup extends Component {
             <Formik
                 validationSchema={this.getValidationSchema}
                 onSubmit={this.handleFormSubmit}
-                render={({ values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit }) => {
+                render={({
+                    values,
+                    touched,
+                    errors,
+                    dirty,
+                    isSubmitting,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    status
+                }) => {
                     return (
                         <form onChange={handleChange} onSubmit={handleSubmit}>
+                            {status && (
+                                <Notification>
+                                    <h3>Oh oh, something went wrong! Please try again or contact us.</h3>
+                                    {status}
+                                </Notification>
+                            )}
                             <CustomInput
                                 label="Firstname"
                                 name="firstname"
@@ -124,15 +148,20 @@ class PsychicSignup extends Component {
                                 handleBlur={handleBlur}
                                 type="date"
                             />
-                            <CustomInput
-                                label="Phone"
-                                name="phone"
-                                placeholder="123-345-3312"
-                                touched={touched}
-                                errors={errors}
-                                values={values}
-                                handleBlur={handleBlur}
-                            />
+                            <Field>
+                                <Label>Phone:</Label>
+                                <Control>
+                                    <MaskedInput
+                                        mask={phoneMask}
+                                        onBlur={handleBlur}
+                                        value={values.phone}
+                                        className={touched.phone && errors.phone ? 'input is-danger' : 'input'}
+                                        name="phone"
+                                        type="tel"
+                                    />
+                                </Control>
+                                {touched.phone && errors.phone && <Help color="danger">{errors.phone}</Help>}
+                            </Field>
                             <CustomInput
                                 label="Address"
                                 name="address"
@@ -154,7 +183,14 @@ class PsychicSignup extends Component {
                             <Field>
                                 <Label>State:</Label>
                                 <Control>
-                                    <Input type="text" placeholder="state" name="state" value={values.state} />
+                                    <Select name="state" value={values.state}>
+                                        {states.map((state, i) => (
+                                            <option key={i} value={state}>
+                                                {state}
+                                            </option>
+                                        ))}
+                                    </Select>
+                                    {touched.state && errors.state && <Help color="danger">{errors.state}</Help>}
                                 </Control>
                             </Field>
                             <CustomInput
@@ -169,7 +205,7 @@ class PsychicSignup extends Component {
                             <Field>
                                 <Label>Country:</Label>
                                 <Control>
-                                    <Select name="country" value={values.country}>
+                                    <Select name="country" value={values.country} onBlur={handleBlur}>
                                         {countries.map((country, i) => (
                                             <option key={i} value={country}>
                                                 {country}

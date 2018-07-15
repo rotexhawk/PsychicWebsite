@@ -1,0 +1,11 @@
+type Query{
+    apiVersion: String!
+}
+type Mutation{
+    apiVersion: String!
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

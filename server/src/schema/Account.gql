@@ -1,0 +1,48 @@
+interface Account {
+    id: Int!
+    firstname: String!
+    lastname: String!
+    email: String!
+    username: String!
+    activation_key: String!
+    role: String!
+    gender: String!
+    dob: String!
+    cardName: String!
+    creditCard: String!
+    expiration: String!
+    securityCode: Int!
+    address1: String!
+    address2: String
+    city: String!
+    state: String!
+    zip: String!
+    country: String!
+}
+
+extend type Mutation {
+    accountCreate (
+        firstname: String!
+        lastname: String!
+        email: String!
+        username: String!
+        password: String!
+        role: String!
+        gender: String!
+        dob: String!
+        cardName: String!
+        creditCard: String!
+        expiration: String!
+        securityCode: Int!
+        address1: String!
+        address2: String
+        city: String!
+        state: String!
+        zip: String!
+        country: String!
+    ):Account
+}
+
+extend type Query {
+    account(id: Int): Account
+}

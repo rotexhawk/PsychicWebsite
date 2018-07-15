@@ -25,7 +25,7 @@ extend type Mutation {
         address: String!
         city: String!
         state: String!
-        zip: Int!
+        zip: String!
         country: String!
         dob: String!
     ):Psychic

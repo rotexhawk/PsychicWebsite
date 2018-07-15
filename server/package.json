@@ -20,11 +20,21 @@
         "babel-preset-env": "^1.7.0",
         "casual": "^1.5.19",
         "faker": "^4.1.0",
-        "nodemon": "^1.17.4"
+        "nodemon": "^1.17.4",
+        "prettier": "^1.13.7"
     },
     "scripts": {
         "start": "nodemon --ignore tests -w src --exec \"babel-node src/index.js\"",
         "build": "babel src -D -d dist --presets babel-preset-env",
         "test": "jest"
+    },
+    "prettier": {
+        "useTabs": false,
+        "printWidth": 120,
+        "tabWidth": 4,
+        "singleQuote": true,
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "parser": "babylon"
     }
 }

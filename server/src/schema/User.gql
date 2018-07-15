@@ -1,42 +1,55 @@
-type User {
-    id: Int
-    username: String!
-    email: String!
-    nicename: String!
-    meta: [UserMeta]
+type Client implements Account{
+
 }
 
-type UserMeta {
-    meta_id: Int!
-    user_id: Int!
-    meta_key: String
-    meta_value: String
+extend type Query {
+    client(id: Int): Client
+    clients: [Client]
 }
 
-type Query {
-    user(id: Int): User
-    users: [User]
-}
-
-type Mutation {
-    userCreate(
-        username: String!
-        password: String!
-        email: String!
+extend type Mutation {
+    clientCreate(
         firstname: String!
         lastname: String!
-    ): User
-    userDelete(id: Int): Boolean
-    userUpdate(
+        email: String!
+        username: String!
+        password: String!
+        role: String!
+        gender: String!
+        dob: String!
+        phone: String!
+        timezone: String
+        cardName: String!
+        creditCard: String!
+        expiration: String!
+        securityCode: Int!
+        address: String!
+        city: String!
+        state: String!
+        zip: String!
+        country: String!
+    ): Client
+    clientDelete(id: Int): Boolean
+    clientUpdate(
         id: Int!
-        password: String
-        email: String
         firstname: String
         lastname: String
-    ): User
-}
-
-schema {
-    query: Query
-    mutation: Mutation
+        email: String
+        username: String
+        password: String
+        role: String
+        gender: String
+        dob: String
+        phone: String
+        timezone: String
+        cardName: String
+        creditCard: String
+        expiration: String
+        securityCode: Int
+        address: String
+        city: String
+        state: String
+        zip: String
+        country: String
+    ): Client
 }

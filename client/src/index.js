@@ -4,10 +4,12 @@ import App from './pages/App';
 import Search from './pages/Search/';
 import Profile from './pages/Profile';
 import PsychicAdmin from './pages/PsychicAdmin';
+import ClientAdmin from './pages/ClientAdmin';
+import { StripeProvider } from 'react-stripe-elements';
+
 import registerServiceWorker from './registerServiceWorker';
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
-
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloLink } from 'apollo-link';
 import { withClientState } from 'apollo-link-state';
@@ -42,7 +44,10 @@ const Root = () => (
         {/* <App /> */}
         {/* <Search /> */}
         {/* <Profile /> */}
-        <PsychicAdmin />
+        {/*<PsychicAdmin />*/}
+        <StripeProvider apiKey="pk_test_12345">
+            <ClientAdmin />
+        </StripeProvider>
     </ApolloProvider>
 );
 
