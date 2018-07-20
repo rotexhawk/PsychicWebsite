@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static(path.join(process.cwd(), '..', 'public')));
 app.use(
     bodyParser.urlencoded({
-        extended: true,
+        extended: true
     })
 );
 
@@ -20,6 +20,4 @@ app.use(
 
 app.use('/', graphqlApp);
 
-app.listen(config.port, () =>
-    console.log(`App listening on  http://stag.cyberserge.com:${config.port}`)
-);
+app.listen(config.port, () => console.log(`App listening on  localhost:${config.port}`));

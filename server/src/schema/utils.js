@@ -1,15 +1,15 @@
 var knex = require('knex')({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'rotexhawk',
-        password: 'dihsaR@121',
-        database: 'psychic',
+        host: 'host',
+        user: 'user',
+        password: 'password',
+        database: 'db'
     },
     debug: true
 });
 
-export const getRepository = ({connection}, entity) => {
+export const getRepository = ({ connection }, entity) => {
     return connection.getRepository(entity);
 };
 
